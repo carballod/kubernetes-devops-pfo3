@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pfo3
+  name: pfo3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pfo3
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pfo3
+    spec:
+      containers:
+      - image: pfo3:v1
+        name: pfo3
+        resources: {}
+status: {}

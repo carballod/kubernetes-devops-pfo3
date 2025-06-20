@@ -1,5 +1,7 @@
 # Práctica Formativa Obligatoria 3
+
 ## Uso e instalación de Kubernetes
+
 Este proyecto contiene una aplicación PHP simple diseñada para ser empaquetada en un contenedor Docker y desplegada en un clúster de Kubernetes.
 
 ## Explicación del Dockerfile
@@ -26,4 +28,17 @@ WORKDIR /var/www/html
 # -S 0.0.0.0:80 : Escucha en el puerto 80 en todas las interfaces de red del contenedor.
 # -t /var/www/html/ : Establece el directorio raíz de los documentos.
 CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/html/"]
+```
+
+## Explicación del deploy-pfo3.yaml
+
+Contiene la definición de un deployment de Kubernetes para desplegar la imagen Docker `pfo3:v1`
+
+```yaml
+# Fue creado con el comando:
+kubectl create deployment pfo3 --image=pfo3:v1 --dry-run=client -o yaml > deploy-pfo3.yaml
+
+# El YAML es útil para versionar y reutilizar la definición del despliegue.
+# Se aplicó con:
+kubectl apply -f deploy-pfo3.yaml
 ```
